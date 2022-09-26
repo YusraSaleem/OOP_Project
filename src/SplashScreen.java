@@ -4,9 +4,7 @@ import java.awt.*;
 
 public class SplashScreen extends JFrame {
     SplashScreen () {
-        //setSize(200,200);
         setBounds(300,100,800,500);
-
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("Images/splash.jpg"));
         Image i2 = i1.getImage().getScaledInstance(800,500,Image.SCALE_DEFAULT);
