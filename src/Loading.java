@@ -1,3 +1,5 @@
+// WHILE ADDING IMAGE ON LOADING FRAME ALL THE OTHR TEXT ON IMAGE  image.add(...)
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -23,6 +25,7 @@ public class Loading extends JFrame implements Runnable {
             }
         }
         catch (Exception e1) {
+            e1.printStackTrace();
 
         }
     }
