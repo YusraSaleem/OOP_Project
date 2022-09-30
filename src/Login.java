@@ -1,8 +1,15 @@
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
+    JButton btn2;
+    JButton btn1;
+    JTextField txtf1;
+    JTextField txtf2;
 
     Login () {
 
@@ -32,7 +39,7 @@ public class Login extends JFrame {
         lab1.setFont(new Font("SAN SERIF",Font.PLAIN,20));
         p2.add(lab1);
 
-        JTextField txtf1 = new JTextField();
+         txtf1 = new JTextField();
         txtf1.setBounds(80,90,300,30);
         txtf1.setBorder(BorderFactory.createEmptyBorder());
         p2.add(txtf1);
@@ -42,31 +49,56 @@ public class Login extends JFrame {
         lab2.setFont(new Font("SAN SERIF",Font.PLAIN,20));
         p2.add(lab2);
 
-        JTextField txtf2 = new JTextField();
+        txtf2 = new JTextField();
         txtf2.setBounds(80,190,300,30);
         txtf2.setBorder(BorderFactory.createEmptyBorder());
         p2.add(txtf2);
 
-        JButton btn1  = new JButton("Login");
+        btn1  = new JButton("Login");
         btn1.setBounds(80,290,130,30);
         btn1.setFont(new Font("SAN SERIF",Font.BOLD,14));
         btn1.setBackground(new Color(30,178,170));
         btn1.setForeground(Color.WHITE);
         btn1.setBorder(new LineBorder(new Color(13,152,186)));
+        btn1.addActionListener(this);
         p2.add(btn1);
 
-        JButton btn2  = new JButton("SignUp");
+        btn2  = new JButton("SignUp");
         btn2.setBounds(250,290,130,30);
         btn2.setFont(new Font("SAN SERIF",Font.BOLD,14));
         btn2.setBackground(new Color(30,178,170));
         btn2.setForeground(Color.WHITE);
         btn2.setBorder(new LineBorder(new Color(13,152,186)));
+        btn2.addActionListener(this);
         p2.add(btn2);
 
         setVisible(true);
     }
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btn1) {
+            try {
+                String name = txtf1.getText();
+                String password = txtf2.getText();
 
-
+                String dbquery = "select * from account where username = '" + name + "' AND password = '" + password + "'";
+                Data dt = new Data();
+                ResultSet rs = dt.stat.executeQuery(dbquery);
+                if (rs.next()) {
+                    setVisible(false);
+                    new Loading(name);
+                }
+                else {
+                    JOptionPane.showMessageDialog(null,"Incorrect username or password");
+                }
+            }
+            catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (e.getSource() == btn2) {
+            new SignUp();
+        }
+    }
     public static void main(String[] args) {
         new Login();
     }

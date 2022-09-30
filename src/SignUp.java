@@ -1,8 +1,17 @@
+// CAN ADD EMAIL OPTION INSTEAD OF CONFIRM PASSWORD
+// CONFIRM PASSWORD NOT WORKING
+// HAVE NOT PUT FORGET PASSWORD PAGE
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class SignUp extends JFrame {
-
+public class SignUp extends JFrame implements ActionListener {
+    JButton btn2;
+    JButton btn1;
+    JTextField txtf1;
+    JTextField txtf2;
+    JTextField txtf3;
     SignUp () {
 
         setBounds(220,130,900,450);
@@ -20,7 +29,7 @@ public class SignUp extends JFrame {
         lab1.setFont(new Font("SAN SERIF",Font.BOLD,18));
         p1.add(lab1);
 
-        JTextField txtf1 = new JTextField();
+        txtf1 = new JTextField();
         txtf1.setBounds(180,60,280,30);
         txtf1.setBorder(BorderFactory.createEmptyBorder());
         p1.add(txtf1);
@@ -30,7 +39,7 @@ public class SignUp extends JFrame {
         lab2.setFont(new Font("SAN SERIF",Font.BOLD,18));
         p1.add(lab2);
 
-        JTextField txtf2 = new JTextField();
+        txtf2 = new JTextField();
         txtf2.setBounds(180,150,280,30);
         txtf2.setBorder(BorderFactory.createEmptyBorder());
         p1.add(txtf2);
@@ -40,23 +49,25 @@ public class SignUp extends JFrame {
         lab3.setFont(new Font("SAN SERIF",Font.BOLD,18));
         p1.add(lab3);
 
-        JTextField txtf3 = new JTextField();
+        txtf3 = new JTextField();
         txtf3.setBounds(180,250,280,30);
         txtf3.setBorder(BorderFactory.createEmptyBorder());
         p1.add(txtf3);
 
-        JButton btn1  = new JButton("Create");
+        btn1  = new JButton("Create");
         btn1.setBounds(80,330,130,30);
         btn1.setFont(new Font("SAN SERIF",Font.BOLD,14));
         btn1.setBackground(Color.WHITE);
         btn1.setForeground(new Color(30,178,170));
+        btn1.addActionListener(this);
         p1.add(btn1);
 
-        JButton btn2  = new JButton("Back");
+        btn2  = new JButton("Back");
         btn2.setBounds(280,330,130,30);
         btn2.setFont(new Font("SAN SERIF",Font.BOLD,14));
         btn2.setBackground(Color.WHITE);
         btn2.setForeground(new Color(30,178,170));
+        btn2.addActionListener(this);
         p1.add(btn2);
 
         /*JPanel p2 = new JPanel();
@@ -74,7 +85,42 @@ public class SignUp extends JFrame {
         setVisible(true);
     }
 
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getSource() == btn1) {
+
+//                if (txtf2.getText() == txtf3.getText()) {
+                    String username = txtf1.getText();
+                    String password = txtf2.getText();
+                    String conpassword = txtf3.getText();
+
+                    String query = "insert into account values('" + username + "','" + password + "','" + conpassword + "')";
+                    try {
+                        Data dt = new Data();
+                        dt.stat.executeUpdate(query);
+
+                        JOptionPane.showMessageDialog(null, "Account created successfully");
+
+                        setVisible(false);
+                        new Login();
+
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+
+                    }
+//                } else {
+//                    JOptionPane.showMessageDialog(null, "Fill Again", "Password Incorrect", JOptionPane.ERROR_MESSAGE);
+//                    setVisible(false);
+//                    new SignUp();
+//                }
+        }
+        else if (e.getSource() == btn2) {
+            new Login();
+        }
+    }
+
     public static void main(String[] args) {
         new SignUp();
     }
+
 }
