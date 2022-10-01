@@ -1,8 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Dashboard extends JFrame {
-    Dashboard () {
+public class Dashboard extends JFrame implements ActionListener {
+    String username;
+    JButton personal,updatepd,viewpd,deletepd;
+    JButton destiny;
+    JButton viewht,bookht,viewbookht;
+    JButton checkpkg,bookpkg,viewpkg;
+    JButton about;
+    Dashboard (String username) {
+        this.username = username;
         setBounds(0,0,1370,730);
         setLayout(null);
 
@@ -31,78 +40,86 @@ public class Dashboard extends JFrame {
         p2.setBackground(new Color(58, 178, 124));
         add(p2);
 
-        JButton personal = new JButton("Add Personal Details");
+        personal = new JButton("Add Personal Details");
         personal.setBounds(0,4,200,45);
         personal.setBackground(new Color(58, 178, 124));
         personal.setForeground(Color.WHITE);
         personal.setFont(new Font("Tahoma",Font.PLAIN,18));
-        //personal.setMargin(new Insets(0,0,0,30));
+        personal.addActionListener(this);
         p2.add(personal);
 
-        JButton updatepd = new JButton("Update Personal Details");
+        updatepd = new JButton("Update Personal Details");
         updatepd.setBounds(0,54,250,45);
         updatepd.setBackground(new Color(58, 178, 124));
         updatepd.setForeground(Color.WHITE);
         updatepd.setFont(new Font("Tahoma",Font.PLAIN,18));
         updatepd.setMargin(new Insets(0,0,0,25));
+        updatepd.addActionListener(this);
         p2.add(updatepd);
 
-        JButton veiwpd = new JButton("View Details");
-        veiwpd.setBounds(0,104,200,45);
-        veiwpd.setBackground(new Color(58, 178, 124));
-        veiwpd.setForeground(Color.WHITE);
-        veiwpd.setFont(new Font("Tahoma",Font.PLAIN,18));
-        veiwpd.setMargin(new Insets(0,0,0,65));
-        p2.add(veiwpd);
+        viewpd = new JButton("View Details");
+        viewpd.setBounds(0,104,200,45);
+        viewpd.setBackground(new Color(58, 178, 124));
+        viewpd.setForeground(Color.WHITE);
+        viewpd.setFont(new Font("Tahoma",Font.PLAIN,18));
+        viewpd.setMargin(new Insets(0,0,0,65));
+        viewpd.addActionListener(this);
+        p2.add(viewpd);
 
-        JButton deletepd = new JButton("Delete Personal Details");
+        deletepd = new JButton("Delete Personal Details");
         deletepd.setBounds(0,154,220,45);
         deletepd.setBackground(new Color(58, 178, 124));
         deletepd.setForeground(Color.WHITE);
         deletepd.setFont(new Font("Tahoma",Font.PLAIN,18));
+        deletepd.addActionListener(this);
         p2.add(deletepd);
 
-        JButton destiny = new JButton("Destination");
+        destiny = new JButton("Destination");
         destiny.setBounds(0,204,200,45);
         destiny.setBackground(new Color(58, 178, 124));
         destiny.setForeground(Color.WHITE);
         destiny.setFont(new Font("Tahoma",Font.PLAIN,18));
         destiny.setMargin(new Insets(0,0,0,65));
+        destiny.addActionListener(this);
         p2.add(destiny);
 
-        JButton veiwht = new JButton("View Hotels");
-        veiwht.setBounds(0,254,200,45);
-        veiwht.setBackground(new Color(58, 178, 124));
-        veiwht.setForeground(Color.WHITE);
-        veiwht.setFont(new Font("Tahoma",Font.PLAIN,18));
-        veiwht.setMargin(new Insets(0,0,0,65));
-        p2.add(veiwht);
+        viewht = new JButton("View Hotels");
+        viewht.setBounds(0,254,200,45);
+        viewht.setBackground(new Color(58, 178, 124));
+        viewht.setForeground(Color.WHITE);
+        viewht.setFont(new Font("Tahoma",Font.PLAIN,18));
+        viewht.setMargin(new Insets(0,0,0,65));
+        viewht.addActionListener(this);
+        p2.add(viewht);
 
-        JButton bookht = new JButton("Book Hotel");
+        bookht = new JButton("Book Hotel");
         bookht.setBounds(0,304,200,45);
         bookht.setBackground(new Color(58, 178, 124));
         bookht.setForeground(Color.WHITE);
         bookht.setFont(new Font("Tahoma",Font.PLAIN,18));
         bookht.setMargin(new Insets(0,0,0,65));
+        bookht.addActionListener(this);
         p2.add(bookht);
 
-        JButton veiwbookht = new JButton("View Booked Hotel");
-        veiwbookht.setBounds(0,354,220,45);
-        veiwbookht.setBackground(new Color(58, 178, 124));
-        veiwbookht.setForeground(Color.WHITE);
-        veiwbookht.setFont(new Font("Tahoma",Font.PLAIN,18));
-        veiwbookht.setMargin(new Insets(0,0,0,30));
-        p2.add(veiwbookht);
+        viewbookht = new JButton("View Booked Hotel");
+        viewbookht.setBounds(0,354,220,45);
+        viewbookht.setBackground(new Color(58, 178, 124));
+        viewbookht.setForeground(Color.WHITE);
+        viewbookht.setFont(new Font("Tahoma",Font.PLAIN,18));
+        viewbookht.setMargin(new Insets(0,0,0,30));
+        viewbookht.addActionListener(this);
+        p2.add(viewbookht);
 
-        JButton checkpkg = new JButton("Check Package");
+        checkpkg = new JButton("Check Package");
         checkpkg.setBounds(0,404,200,45);
         checkpkg.setBackground(new Color(58, 178, 124));
         checkpkg.setForeground(Color.WHITE);
         checkpkg.setFont(new Font("Tahoma",Font.PLAIN,18));
         checkpkg.setMargin(new Insets(0,0,0,30));
+        checkpkg.addActionListener(this);
         p2.add(checkpkg);
 
-        JButton bookpkg = new JButton("Book Package");
+        bookpkg = new JButton("Book Package");
         bookpkg.setBounds(0,454,200,45);
         bookpkg.setBackground(new Color(58, 178, 124));
         bookpkg.setForeground(Color.WHITE);
@@ -110,20 +127,22 @@ public class Dashboard extends JFrame {
         bookpkg.setMargin(new Insets(0,0,0,30));
         p2.add(bookpkg);
 
-        JButton viewpkg = new JButton("View Package");
+        viewpkg = new JButton("View Package");
         viewpkg.setBounds(0,504,200,45);
         viewpkg.setBackground(new Color(58, 178, 124));
         viewpkg.setForeground(Color.WHITE);
         viewpkg.setFont(new Font("Tahoma",Font.PLAIN,18));
         viewpkg.setMargin(new Insets(0,0,0,30));
+        viewpkg.addActionListener(this);
         p2.add(viewpkg);
 
-        JButton about = new JButton("About");
+        about = new JButton("About");
         about.setBounds(0,554,200,45);
         about.setBackground(new Color(58, 178, 124));
         about.setForeground(Color.WHITE);
         about.setFont(new Font("Tahoma",Font.PLAIN,18));
         about.setMargin(new Insets(0,0,0,65));
+        about.addActionListener(this);
         p2.add(about);
 
         ImageIcon i4 = new ImageIcon(ClassLoader.getSystemResource("Images/splash.jpg"));
@@ -140,14 +159,23 @@ public class Dashboard extends JFrame {
         l2.add(title);
 
 
-
-
         setVisible(true);
     }
 
-
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == personal) {
+            new AddCustomer(username);
+        }
+        else if (e.getSource() == viewpd) {
+            new ViewCustomer(username);
+        }
+        else if (e.getSource() == updatepd) {
+            new UpdateCustomer(username);
+        }
+    }
 
     public static void main(String[] args) {
-        new Dashboard();
+        new Dashboard("");
     }
 }
