@@ -125,6 +125,7 @@ public class Dashboard extends JFrame implements ActionListener {
         bookpkg.setForeground(Color.WHITE);
         bookpkg.setFont(new Font("Tahoma",Font.PLAIN,18));
         bookpkg.setMargin(new Insets(0,0,0,30));
+        bookpkg.addActionListener(this);
         p2.add(bookpkg);
 
         viewpkg = new JButton("View Package");
@@ -172,6 +173,15 @@ public class Dashboard extends JFrame implements ActionListener {
         }
         else if (e.getSource() == updatepd) {
             new UpdateCustomer(username);
+        }
+        else if (e.getSource() == checkpkg) {
+            new CheckPackage();
+        }
+        else if (e.getSource() == bookpkg) {
+            new BookPackage(username);
+        }
+        else if (e.getSource() == viewpkg) {
+            new ViewPackage(username);
         }
     }
 

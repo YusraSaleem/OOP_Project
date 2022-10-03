@@ -127,7 +127,7 @@ public class AddCustomer extends JFrame implements ActionListener {
 
         try {
             Data dt2 = new Data();
-            ResultSet rs2 = dt2.stat.executeQuery("select * from account where username = 'Aiman'");
+            ResultSet rs2 = dt2.stat.executeQuery("select * from account where username = '"+username+"'");
             while (rs2.next()) {
                 nametxt.setText(rs2.getString("username"));
                 nametxt.setEditable(false);
@@ -174,6 +174,6 @@ public class AddCustomer extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new AddCustomer("");
+        new AddCustomer("Aiman");
     }
 }
