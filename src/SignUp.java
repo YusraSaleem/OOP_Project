@@ -70,11 +70,6 @@ public class SignUp extends JFrame implements ActionListener {
         btn2.addActionListener(this);
         p1.add(btn2);
 
-        /*JPanel p2 = new JPanel();
-        p2.setBounds(500,0,400,450);
-        p2.setBackground(Color.WHITE);
-        add(p2);*/
-
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("Images/Signup.jpg"));
         Image i2 = i1.getImage().getScaledInstance(350,500,Image.SCALE_DEFAULT);
         ImageIcon image = new ImageIcon(i2);
@@ -116,6 +111,7 @@ public class SignUp extends JFrame implements ActionListener {
         }
         else if (e.getSource() == btn2) {
             new Login();
+            setVisible(false);
         }
     }
 

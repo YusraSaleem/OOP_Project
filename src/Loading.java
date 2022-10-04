@@ -47,7 +47,7 @@ public class Loading extends JFrame implements Runnable {
 //        l1.setBounds(0,0,600,450);
 //        add(l1);
 
-        JLabel title = new JLabel("Travel Management System");
+        JLabel title = new JLabel("Tourism Management System");
         title.setForeground(new Color(66,178,189));
         title.setBounds(100,10,550,40);
         title.setFont(new Font("SAN SERIF",Font.BOLD,28));

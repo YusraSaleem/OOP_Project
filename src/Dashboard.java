@@ -7,9 +7,11 @@ public class Dashboard extends JFrame implements ActionListener {
     String username;
     JButton personal,updatepd,viewpd,deletepd;
     JButton destiny;
-    JButton viewht,bookht,viewbookht;
+    JButton viewht;
     JButton checkpkg,bookpkg,viewpkg;
-    JButton about;
+    JButton about,calc,ntpd;
+    String[] arr = new String[] {"calc.exe"};
+    String[] arr2 = new String[] {"notepad.exe"};
     Dashboard (String username) {
         this.username = username;
         setBounds(0,0,1370,730);
@@ -92,50 +94,50 @@ public class Dashboard extends JFrame implements ActionListener {
         viewht.addActionListener(this);
         p2.add(viewht);
 
-        bookht = new JButton("Book Hotel");
-        bookht.setBounds(0,304,200,45);
-        bookht.setBackground(new Color(58, 178, 124));
-        bookht.setForeground(Color.WHITE);
-        bookht.setFont(new Font("Tahoma",Font.PLAIN,18));
-        bookht.setMargin(new Insets(0,0,0,65));
-        bookht.addActionListener(this);
-        p2.add(bookht);
-
-        viewbookht = new JButton("View Booked Hotel");
-        viewbookht.setBounds(0,354,220,45);
-        viewbookht.setBackground(new Color(58, 178, 124));
-        viewbookht.setForeground(Color.WHITE);
-        viewbookht.setFont(new Font("Tahoma",Font.PLAIN,18));
-        viewbookht.setMargin(new Insets(0,0,0,30));
-        viewbookht.addActionListener(this);
-        p2.add(viewbookht);
-
         checkpkg = new JButton("Check Package");
-        checkpkg.setBounds(0,404,200,45);
+        checkpkg.setBounds(0,304,200,45);
         checkpkg.setBackground(new Color(58, 178, 124));
         checkpkg.setForeground(Color.WHITE);
         checkpkg.setFont(new Font("Tahoma",Font.PLAIN,18));
-        checkpkg.setMargin(new Insets(0,0,0,30));
+        checkpkg.setMargin(new Insets(0,0,0,35));
         checkpkg.addActionListener(this);
         p2.add(checkpkg);
 
         bookpkg = new JButton("Book Package");
-        bookpkg.setBounds(0,454,200,45);
+        bookpkg.setBounds(0,354,220,45);
         bookpkg.setBackground(new Color(58, 178, 124));
         bookpkg.setForeground(Color.WHITE);
         bookpkg.setFont(new Font("Tahoma",Font.PLAIN,18));
-        bookpkg.setMargin(new Insets(0,0,0,30));
+        bookpkg.setMargin(new Insets(0,0,0,50));
         bookpkg.addActionListener(this);
         p2.add(bookpkg);
 
         viewpkg = new JButton("View Package");
-        viewpkg.setBounds(0,504,200,45);
+        viewpkg.setBounds(0,404,200,45);
         viewpkg.setBackground(new Color(58, 178, 124));
         viewpkg.setForeground(Color.WHITE);
         viewpkg.setFont(new Font("Tahoma",Font.PLAIN,18));
         viewpkg.setMargin(new Insets(0,0,0,30));
         viewpkg.addActionListener(this);
         p2.add(viewpkg);
+
+        calc = new JButton("Calculator");
+        calc.setBounds(0,454,200,45);
+        calc.setBackground(new Color(58, 178, 124));
+        calc.setForeground(Color.WHITE);
+        calc.setFont(new Font("Tahoma",Font.PLAIN,18));
+        calc.setMargin(new Insets(0,0,0,50));
+        calc.addActionListener(this);
+        p2.add(calc);
+
+        ntpd = new JButton("Notepad");
+        ntpd.setBounds(0,504,200,45);
+        ntpd.setBackground(new Color(58, 178, 124));
+        ntpd.setForeground(Color.WHITE);
+        ntpd.setFont(new Font("Tahoma",Font.PLAIN,18));
+        ntpd.setMargin(new Insets(0,0,0,50));
+        ntpd.addActionListener(this);
+        p2.add(ntpd);
 
         about = new JButton("About");
         about.setBounds(0,554,200,45);
@@ -188,6 +190,28 @@ public class Dashboard extends JFrame implements ActionListener {
         }
         else if (e.getSource() == destiny) {
             new ViewDestinations();
+        }
+        else if (e.getSource() == calc) {
+           try {
+               Runtime.getRuntime().exec(arr);
+           }
+           catch (Exception e1) {
+               e1.printStackTrace();
+           }
+        }
+        else if (e.getSource() == ntpd) {
+            try {
+                Runtime.getRuntime().exec(arr2);
+            }
+            catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
+        else if (e.getSource() == about) {
+            new About();
+        }
+        else if (e.getSource() == deletepd) {
+            new DeleteDetails(username);
         }
     }
 
