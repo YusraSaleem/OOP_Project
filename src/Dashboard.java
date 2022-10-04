@@ -183,6 +183,12 @@ public class Dashboard extends JFrame implements ActionListener {
         else if (e.getSource() == viewpkg) {
             new ViewPackage(username);
         }
+        else if (e.getSource() == viewht) {
+            new ViewHotels();
+        }
+        else if (e.getSource() == destiny) {
+            new ViewDestinations();
+        }
     }
 
     public static void main(String[] args) {
