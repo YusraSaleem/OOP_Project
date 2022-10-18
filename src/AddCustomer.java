@@ -1,4 +1,3 @@
-// !!! ADDING EMAIL HERE AS WELL. REMOVE FROM HERE IF ADDING IT IN SIGNUP FRAME !!!
 
 import javax.swing.*;
 import java.awt.*;
@@ -174,6 +173,6 @@ public class AddCustomer extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new AddCustomer("Aiman");
+        new AddCustomer("");
     }
 }

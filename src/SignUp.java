@@ -12,6 +12,8 @@ public class SignUp extends JFrame implements ActionListener {
     JTextField txtf1;
     JTextField txtf2;
     JTextField txtf3;
+    //JPasswordField txtf2;
+    //JPasswordField txtf3;
     SignUp () {
 
         setBounds(220,130,900,450);
@@ -39,6 +41,7 @@ public class SignUp extends JFrame implements ActionListener {
         lab2.setFont(new Font("SAN SERIF",Font.BOLD,18));
         p1.add(lab2);
 
+        //txtf2 = new JPasswordField();
         txtf2 = new JTextField();
         txtf2.setBounds(180,150,280,30);
         txtf2.setBorder(BorderFactory.createEmptyBorder());
@@ -50,6 +53,7 @@ public class SignUp extends JFrame implements ActionListener {
         p1.add(lab3);
 
         txtf3 = new JTextField();
+        //txtf3 = new JPasswordField();
         txtf3.setBounds(180,250,280,30);
         txtf3.setBorder(BorderFactory.createEmptyBorder());
         p1.add(txtf3);
@@ -83,11 +87,11 @@ public class SignUp extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == btn1) {
-
-//                if (txtf2.getText() == txtf3.getText()) {
                     String username = txtf1.getText();
                     String password = txtf2.getText();
                     String conpassword = txtf3.getText();
+
+                    if (password.equals(conpassword)) {
 
                     String query = "insert into account values('" + username + "','" + password + "','" + conpassword + "')";
                     try {
@@ -103,11 +107,11 @@ public class SignUp extends JFrame implements ActionListener {
                         e1.printStackTrace();
 
                     }
-//                } else {
-//                    JOptionPane.showMessageDialog(null, "Fill Again", "Password Incorrect", JOptionPane.ERROR_MESSAGE);
-//                    setVisible(false);
-//                    new SignUp();
-//                }
+               } else {
+                    JOptionPane.showMessageDialog(null, "Fill Again", "Password Incorrect", JOptionPane.ERROR_MESSAGE);
+                    setVisible(false);
+                    new SignUp();
+                }
         }
         else if (e.getSource() == btn2) {
             new Login();

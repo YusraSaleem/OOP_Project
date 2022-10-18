@@ -25,7 +25,7 @@ public class About extends JFrame implements ActionListener {
                 "It is tedious for a customer to plan a particular journey and have it executed " +
                 "properly. The project ‘Tourism Management System’ is developed to replace the" +
                 " currently existing system, which helps in keeping records of the customer details of " +
-                "destination as well as payment received.";
+                "destination as well as different packages.";
 
         TextArea txtarea = new TextArea(txt,10,14,Scrollbar.VERTICAL);
         txtarea.setEditable(false);

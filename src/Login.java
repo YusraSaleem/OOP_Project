@@ -10,6 +10,7 @@ public class Login extends JFrame implements ActionListener {
     JButton btn1;
     JTextField txtf1;
     JTextField txtf2;
+    //JPasswordField txtf2;
 
     Login () {
 
@@ -50,6 +51,7 @@ public class Login extends JFrame implements ActionListener {
         p2.add(lab2);
 
         txtf2 = new JTextField();
+        //txtf2 = new JPasswordField();
         txtf2.setBounds(80,190,300,30);
         txtf2.setBorder(BorderFactory.createEmptyBorder());
         p2.add(txtf2);
